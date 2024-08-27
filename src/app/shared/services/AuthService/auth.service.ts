@@ -9,7 +9,7 @@ export class AuthService {
   constructor() {
     // For demonstration, we're setting the role directly. 
     // You would normally get this from an API or local storage.
-    this.userRole = 'lawyer'; // or 'lawyer'
+    this.userRole = 'firms'; // or 'lawyer'
   }
 
   getRole(): string {

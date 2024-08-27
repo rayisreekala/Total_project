@@ -133,6 +133,50 @@ export class MenuComponent implements OnInit {
         },
       ];
     }
+    else if (role === 'firms') {
+      this.model = [
+        {
+          items: [
+            {
+              label: 'Firms Dashboard',
+              icon: 'pi pi-fw pi-chart-line',
+              routerLink: ['/main/lawyer-dashboard'],
+            },
+            {
+              label: 'Preferences',
+              icon: 'pi pi-fw pi-history',
+              routerLink: ['/main/cases'],
+            },
+            {
+              label: 'Lawyers',
+              icon: 'pi pi-fw pi-users',
+              routerLink: ['/main/clients'],
+            },
+           
+            {
+              label: 'Clients',
+              icon: 'pi pi-fw pi-users',
+              routerLink: ['/main/calendar'],
+            },
+            // {
+            //   label: 'invoices',
+            //   icon: 'pi pi-fw pi-users',
+            //   routerLink: ['/main/clients'],
+            // },
+            // {
+            //   label: 'Payables',
+            //   icon: 'pi pi-fw pi-dollar',
+            //   routerLink: ['/main/payables'],
+            // },
+            // {
+            //   label: 'Receivables',
+            //   icon: 'pi pi-fw pi-users',
+            //   routerLink: ['/main/clients'],
+            // },
+          ],
+        },
+      ];
+    }
     
   }
 }

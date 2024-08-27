@@ -62,8 +62,8 @@ export class HomeComponent implements OnInit {
           
           'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmyrYn4TRpJ8eu1qV8-77Da0UH81_St_QsWA&s',]},
       { url: 'https://bsmedia.business-standard.com/_media/bs/img/article/2023-07/31/full/1690808739-8838.jpeg', 
-        quote: 'The strength of a nation lies in its legal institutions and the fairness of its judicial system.', 
-        heading:'K.K. Venugopal',
+        quote: 'The liberties of none are safe unless the liberties of all are protected.', 
+        heading:'Justice William O. Douglas',
         smallImage: ['https://akm-img-a-in.tosshub.com/indiatoday/images/story/202408/bombay-high-court-140821572-16x9_8.jpg?VersionId=TLhcUdeGUmzgJgMHnJDi83e8mqL7YYNQ&size=690:388',
           'https://www.shutterstock.com/image-photo/chennai-tamilnadu-india-feb-01-600nw-2163537161.jpg',
           'https://media.istockphoto.com/id/1442120245/photo/beautiful-shot-of-the-high-court-for-the-state-of-telangana-with-surrounding-trees-in-india.jpg?s=612x612&w=0&k=20&c=LqApZ_WZ0qLQmUBccBXEGW0M3TeqP4KOtmSzsjL2Vqg=',

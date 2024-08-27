@@ -28,6 +28,14 @@
  .back{
     background-color: rgb(134, 199, 236);
     border-radius: 20px;
-z-index: -1;
-margin-top: -20px;
+    z-index: -1;
+    margin-top: -20px;
  }
+
+ .back:hover{
+    background-color: rgb(87, 177, 230);
+    color: blue;
+    z-index: 10;
+
+ }
+ 
