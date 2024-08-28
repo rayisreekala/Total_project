@@ -30,6 +30,7 @@ import { TableModule } from 'primeng/table';
 import { CaseComponent } from './features/components/case/case.component'; // Update with the correct path
 import { DialogModule } from 'primeng/dialog';  // Import DialogModule
 import { MenuModule } from 'primeng/menu';
+import { OverlayPanelModule } from 'primeng/overlaypanel';
 
 
 @NgModule({
@@ -57,7 +58,8 @@ import { MenuModule } from 'primeng/menu';
     ToastModule,
     TableModule,
     DialogModule,
-     MenuModule 
+     MenuModule ,
+     OverlayPanelModule,
     
   ],
   declarations: [DocumentComponent, AppComponent,CaseComponent],
