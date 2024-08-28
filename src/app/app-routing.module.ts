@@ -17,7 +17,7 @@ import { AuthGuard } from './shared/guards/auth.guard';
           import('./features/features.module').then(
             (m) => m.FeaturesModule
           ),
-          canActivate: [AuthGuard],
+          // canActivate: [AuthGuard],
       },
       {
         path: '**',

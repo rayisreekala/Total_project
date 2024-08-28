@@ -17,6 +17,10 @@ import { BreadcrumbComponent } from './layout/breadcrumb/breadcrumb.component';
 import { CreateEditUserComponent } from './components/admin/create-edit-user/create-edit-user.component';
 import { RolesEditComponent } from './components/admin/roles-edit/roles-edit.component';
 import { HomeComponent } from './components/home/home.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { DocumentComponent } from './components/document/document.component';
+import { CaseComponent } from './components/case/case.component';
+import { CasesComponent } from './components/cases/cases.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +37,10 @@ import { HomeComponent } from './components/home/home.component';
     CreateEditUserComponent,
     RolesEditComponent,
     HomeComponent,
+    ProfileComponent,
+    CasesComponent,
+    
+    
   ],
   imports: [
     FormsModule,

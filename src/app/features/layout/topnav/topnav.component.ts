@@ -25,4 +25,7 @@ export class TopnavComponent implements OnInit{
   public logout() {
     this.route.navigate(['/login']);
   }
+  public Profile() {
+    this.route.navigate(['/main/home/profile']);
+  }
 }

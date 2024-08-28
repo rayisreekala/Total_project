@@ -7,6 +7,10 @@ import { RolesComponent } from './components/admin/roles/roles.component';
 import { UsersComponent } from './components/admin/users/users.component';
 import { CreateEditUserComponent } from './components/admin/create-edit-user/create-edit-user.component';
 import { HomeComponent } from './components/home/home.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { DocumentComponent } from './components/document/document.component';
+import { CaseComponent } from './components/case/case.component';
+import { CasesComponent } from './components/cases/cases.component';
 
 
 const routes: Routes = [
@@ -19,6 +23,22 @@ const routes: Routes = [
         path: 'dashboard',
         component: DashboardComponent, // HomeComponent for home path
       },
+
+      {
+        path:'profile' ,component:ProfileComponent
+      },
+
+      {
+        path:'document' ,component:DocumentComponent
+      },
+      {
+        path:'case' ,component:CaseComponent
+      },
+      {
+        path:'cases' ,component:CasesComponent
+      },
+      
+      
       
       {
         path: 'admin',

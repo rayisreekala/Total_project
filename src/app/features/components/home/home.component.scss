@@ -216,7 +216,7 @@ p{
 .last {
     display: flex;
     align-items: flex-end;
-    justify-content: end; /* Aligns items to the end of the cross axis (bottom for row-direction) */
+    justify-content: flex-end; /* Aligns items to the end of the cross axis (bottom for row-direction) */
   }
   
 

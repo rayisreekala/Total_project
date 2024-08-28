@@ -44,12 +44,17 @@ export class MenuComponent implements OnInit {
           {
             label: 'Documents',
             icon: 'pi pi-fw pi-file',
-            routerLink: ['/main/dashboard'],
+            routerLink: ['main/home/document'],
           },
           {
             label: 'Cases',
             icon: 'pi pi-fw pi-history',
-            routerLink: ['/main/dashboard'],
+            routerLink: ['/main/home/case'],
+          },
+          {
+            label: 'Advanced Cases Dashboard',
+            icon: 'pi pi-fw pi-history',
+            routerLink: ['/main/home/cases'],
           },
           {
             label: 'Calendar',
@@ -69,22 +74,22 @@ export class MenuComponent implements OnInit {
           
           
           
-          {
-            label: 'Admin',
-            icon: 'pi pi-fw pi-lock',
-            items: [
-              {
-                label: 'Users',
-                icon: 'pi pi-fw pi-user',
-                routerLink: ['/main/dashboard/admin/users'],
-              },
-              {
-                label: 'Roles',
-                icon: 'pi pi-fw pi-users',
-                routerLink: ['/main/dashboard/admin/roles'],
-              },
-            ],
-          },
+          // {
+          //   label: 'Admin',
+          //   icon: 'pi pi-fw pi-lock',
+          //   items: [
+          //     {
+          //       label: 'Users',
+          //       icon: 'pi pi-fw pi-user',
+          //       routerLink: ['/main/dashboard/admin/users'],
+          //     },
+          //     {
+          //       label: 'Roles',
+          //       icon: 'pi pi-fw pi-users',
+          //       routerLink: ['/main/dashboard/admin/roles'],
+          //     },
+          //   ],
+          // },
         ],
       },
     ];

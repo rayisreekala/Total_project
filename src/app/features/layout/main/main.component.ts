@@ -10,6 +10,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./main.component.scss'],
 })
 export class MainComponent {
+// Profile() {
+// throw new Error('Method not implemented.');
+// }
   rotateMenuButton: boolean = false;
 
   topbarMenuActive: boolean = false;
@@ -181,5 +184,9 @@ export class MainComponent {
   logOut(){
     localStorage.removeItem('isLoggedIn');
     this.router.navigate(['/auth/login']);
+  }
+  Profile(){
+    // localStorage.removeItem('isLoggedIn');
+    this.router.navigate(['/main/home/profile']);
   }
 }
