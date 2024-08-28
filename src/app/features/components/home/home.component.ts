@@ -1,51 +1,19 @@
-// import { Component, OnInit } from '@angular/core';
-
-// @Component({
-//   selector: 'app-dashboard',
-//   templateUrl: './home.component.html',
-//   styleUrls: ['./home.component.scss']
-// })
-// export class HomeComponent implements OnInit {
-//   images:any[] = [
-//     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqQTasZIPBdmc-x6q6qCHHBGySw-zMnAkVzA&s",
-//     "https://mc.webpcache.epapr.in/mcms.php?size=medium&in=https://mcmscache.epapr.in/post_images/website_350/post_15685610/thumb.jpg"
-//    ]
-//   constructor() { }
-
-//   ngOnInit(): void {
-//   }
-
-// }
 
 import { Component, OnInit } from '@angular/core';
-// import { Product } from '@domain/product';
-// import { ProductService } from '@service/productservice';
 import { CarouselModule, CarouselResponsiveOptions } from 'primeng/carousel';
-import { ButtonModule } from 'primeng/button';
-import { TagModule } from 'primeng/tag';
-// import { GridModule } from 'primeng/grid'; // Ensure this is imported
+import { ServeclassService } from 'src/app/shared/services/serveclass.service';
+import { Servein } from 'src/app/domain/servein';
 @Component({
   selector: 'app-dashboard',
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.scss'],
-   
-    // imports: [CarouselModule, ButtonModule, TagModule],
-    // providers: [ProductService]
+  
 })
 export class HomeComponent implements OnInit {
-    // images:any[] = [
-    //   "https://img.freepik.com/premium-photo/scales-justice-hologram-blue-background-judgment-concept-court-judiciary-3d-render-3d-illustration_99433-7086.jpg",
-    //   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqQTasZIPBdmc-x6q6qCHHBGySw-zMnAkVzA&s",
-    //   "https://mc.webpcache.epapr.in/mcms.php?size=medium&in=https://mcmscache.epapr.in/post_images/website_350/post_15685610/thumb.jpg",
-    // "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqQTasZIPBdmc-x6q6qCHHBGySw-zMnAkVzA&s",
-    // "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqQTasZIPBdmc-x6q6qCHHBGySw-zMnAkVzA&s", 
-    // ]
-    
-
-
+  outputurl: any[] = [];
     images:any[] = [
       { url: 'https://www.livelaw.in/h-upload/2022/11/09/750x450_443369-supreme-court-sc-06.jpg', 
-        quote: 'A lawyer’s highest calling is to fight for justice, not just to win cases.', 
+        quote: 'A lawyerâ€™s highest calling is to fight for justice, not just to win cases.', 
         heading:'Nani Palkhivala',
         smallImage: ['https://www.livelaw.in/h-upload/2019/04/29/750x450_360385-kolkata-high-court-5.jpg',
           'https://lawtrend.in/wp-content/uploads/2023/02/sc-calcutta-hc.jpeg',
@@ -83,9 +51,18 @@ export class HomeComponent implements OnInit {
     ];
 responsiveOptions: CarouselResponsiveOptions[]|undefined;
 indicators: any;
-    constructor() { }
-  
-    ngOnInit(): void {
-    }
-  
-  }
+
+constructor(private sc: ServeclassService) {}  
+ngOnInit(): void {
+  this.sc.geturllist().subscribe((response: Servein) => {
+    this.outputurl = [
+      { title: 'Cases', value: response.cases, icon: 'pi-folder-open', iconBg: 'red-bg' },
+      { title: 'Lawyers', value: response.lawyers, icon: 'pi-users', iconBg: 'purple-bg' },
+      { title: 'Clients', value: response.clients, icon: 'pi-users', iconBg: 'green-bg' },
+      { title: 'Firms', value: response.Firms, icon: 'pi-home', iconBg: 'blue-bg' },
+      { title: 'Closed Cases', value: response.closedCases, icon: 'pi-book', iconBg: 'orange-bg' },
+      { title: 'Active Users', value: response.activeCases, icon: 'pi-book', iconBg: 'yellow-bg' }
+    ];
+  });
+}
+}

@@ -20,7 +20,15 @@ export class CaseComponent implements OnInit {
     newCase: Product = {} as Product;
     display: boolean = false;
 dt1: any;
+
 items: MenuItem[] | undefined;
+
+visible: boolean = false;
+
+products_details: any[] = [
+  { code: 'Civil ', name: '20-1-2024', category: '862/2005', quantity: '53/2005' },
+  { code: 'Criminal', name: '07-2-2024', category: '654/2005', quantity: '67/2005' }
+];
 
     constructor(private messageService: MessageService) {} // Inject MessageService here
 
@@ -29,20 +37,21 @@ items: MenuItem[] | undefined;
 
       this.items = [
         {
-            
+            label:'options',
             items: [
+              {
+                label: 'Edit',
+                icon: 'pi pi-pencil',
+                command: () => {
+                }
+            },
                 {
                     label: 'History',
                     icon: 'pi pi-history',
                     command: () => {
                     }
-                },
-                {
-                    label: 'Edit',
-                    icon: 'pi pi-pencil',
-                    command: () => {
-                    }
                 }
+               
             ]
         },
       
@@ -215,6 +224,12 @@ items: MenuItem[] | undefined;
         ];
     }
 
+
+    onSearch(value: string) {
+      if (this.dt1) {
+        this.dt1.filterGlobal(value, 'contains'); // Use the filterGlobal method to search
+      }
+    }
     showDialog() {
         this.newCase = {
             case_id: '',
@@ -231,6 +246,11 @@ items: MenuItem[] | undefined;
             documents: '',
         };
         this.display = true;
+       
+
+    }
+    showDialogBox(){
+      this.visible=true;
     }
 
     clear(table: Table) {

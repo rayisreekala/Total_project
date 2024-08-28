@@ -31,6 +31,8 @@ import { CaseComponent } from './features/components/case/case.component'; // Up
 import { DialogModule } from 'primeng/dialog';  // Import DialogModule
 import { MenuModule } from 'primeng/menu';
 import { OverlayPanelModule } from 'primeng/overlaypanel';
+import { AccordionModule } from 'primeng/accordion';  // Import AccordionModule
+
 
 
 @NgModule({
@@ -60,6 +62,7 @@ import { OverlayPanelModule } from 'primeng/overlaypanel';
     DialogModule,
      MenuModule ,
      OverlayPanelModule,
+     AccordionModule
     
   ],
   declarations: [DocumentComponent, AppComponent,CaseComponent],

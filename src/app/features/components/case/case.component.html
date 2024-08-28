@@ -38,10 +38,13 @@
         ></button>
         <span class="p-input-icon-left ml-auto">
           <i class="pi pi-search"></i>
+          <!-- Use (input) event to call the onSearch method -->
+          <!--   (input)="onSearch($event.target.value)" -->
           <input pInputText type="text" placeholder="Search keyword" />
         </span>
       </div>
     </ng-template>
+
     <ng-template pTemplate="header">
       <tr>
         <th style="width: 20%">Name</th>
@@ -212,63 +215,205 @@
         </td>
 
         <td>
-            <div class="flex align-items-center justify-content-center gap-2">
-                <button
-                  *ngIf="!editing"
-                  pButton
-                  pRipple
-                  type="button"
-                  pInitEditableRow
-                  icon="pi pi-pencil"
-                  (click)="onRowEditInit(product)"
-                  class="p-button-rounded p-button-text"
-                ></button>
-              
-                <div class="relative-container">
-                  <p-toast></p-toast>
+          <div class="flex align-items-center justify-content-center gap-2">
+            <button
+              *ngIf="!editing"
+              pButton
+              pRipple
+              type="button"
+              pInitEditableRow
+              icon="pi pi-pencil"
+              (click)="onRowEditInit(product)"
+              class="p-button-rounded p-button-text"
+            ></button>
 
-                 
-                  <!-- PrimeNG Menu with Popup enabled -->
-                  <p-menu #menu [model]="items" [popup]="true"></p-menu>
-                  <button
-                    pButton
-                    type="button"
-                    (click)="menu.toggle($event)"
-                    icon="pi pi-ellipsis-v"
-                    class="p-button-rounded p-button-text"
-                  ></button>
-                </div>
-              
-                <button
-                  *ngIf="editing"
-                  pButton
-                  pRipple
-                  type="button"
-                  pSaveEditableRow
-                  icon="pi pi-check"
-                  (click)="onRowEditSave(product)"
-                  class="p-button-rounded p-button-text p-button-success mr-2"
-                ></button>
-                <button
-                  *ngIf="editing"
-                  pButton
-                  pRipple
-                  type="button"
-                  pCancelEditableRow
-                  icon="pi pi-times"
-                  (click)="onRowEditCancel(product, ri)"
-                  class="p-button-rounded p-button-text p-button-danger"
-                ></button>
-              </div>
-              
-              
+            <!-- Overlay Panel to display the menu on click of the ellipsis button -->
+            <p-overlayPanel #overlay [showCloseIcon]="true">
+              <p-menu [model]="items"></p-menu>
+            </p-overlayPanel>
+
+            <div class="relative-container">
+              <p-toast></p-toast>
+              <button
+                pButton
+                type="button"
+                (click)="overlay.toggle($event)"
+                icon="pi pi-ellipsis-v"
+                class="p-button-rounded p-button-text"
+              ></button>
+            </div>
+
+            <button
+              *ngIf="editing"
+              pButton
+              pRipple
+              type="button"
+              pSaveEditableRow
+              icon="pi pi-check"
+              (click)="onRowEditSave(product)"
+              class="p-button-rounded p-button-text p-button-success mr-2"
+            ></button>
+            <button
+              *ngIf="editing"
+              pButton
+              pRipple
+              type="button"
+              pCancelEditableRow
+              icon="pi pi-times"
+              (click)="onRowEditCancel(product, ri)"
+              class="p-button-rounded p-button-text p-button-danger"
+            ></button>
+          </div>
         </td>
       </tr>
+
+      <p-button
+        (click)="showDialogBox()"
+        icon="pi pi-external-link"
+        label="Case1"
+      ></p-button>
+      <p-dialog
+        [(visible)]="visible"
+        [style]="{ width: '80vw', height: '80vw' }"
+      >
+        <div class="card flex justify-content-center">
+          <p-accordion [multiple]="true" [activeIndex]="[0]">
+            <p-accordionTab
+              header="Case Details"
+              [headerStyle]="{
+                'background-color': '#02ABE7',
+                color: 'black',
+                'font-size': '18px'
+              }"
+            >
+              <div class="card-table">
+                <div class="table-wrapper">
+                  <p-table
+                    class="custom-table"
+                    [value]="products_details"
+                    [tableStyle]="{ 'min-width': '50rem' }"
+                  >
+                    <ng-template pTemplate="header">
+                      <tr>
+                        <th>Case type</th>
+                        <th>Filing Number</th>
+                      </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-product>
+                      <tr>
+                        <td class="text-overflow">{{ product.code }}</td>
+                        <td class="text-overflow">{{ product.name }}</td>
+                      </tr>
+                    </ng-template>
+                  </p-table>
+                </div>
+              </div>
+            </p-accordionTab>
+            <p-accordionTab
+              header=" Case Status"
+              [headerStyle]="{
+                'background-color': '#02ABE7',
+                color: 'black',
+                'font-size': '18px'
+              }"
+            >
+              <p class="custom-content">
+                Seeking compensation for the losses incurred due to the delay.
+                The case was filed in a civil court, and both companies began
+                preparing their arguments and evidence. As the case progressed,
+                both parties engaged in settlement discussions to avoid the time
+                and cost of a trial. After several rounds of negotiations,
+                Company A agreed to compensate Company B with a financial
+                settlement to cover the losses, along with an additional amount
+                to cover legal fees. In return, Company B agreed to drop the
+                lawsuit and not pursue further legal action.
+              </p>
+            </p-accordionTab>
+            <p-accordionTab
+              header="History of Case hearing "
+              [headerStyle]="{
+                'background-color': '#02ABE7',
+                color: 'black',
+                'font-size': '18px'
+              }"
+            >
+              <div class="card-table">
+                <p-table
+                  class="custom-table"
+                  [value]="products_details"
+                  [tableStyle]="{ 'min-width': '50rem' }"
+                >
+                  <ng-template pTemplate="header">
+                    <tr>
+                      <th>Code</th>
+                      <th>Name</th>
+                      <th>Category</th>
+                      <th>Quantity</th>
+                    </tr>
+                  </ng-template>
+                  <ng-template pTemplate="body" let-product>
+                    <tr>
+                      <td class="text-overflow">{{ product.code }}</td>
+                      <td class="text-overflow">{{ product.name }}</td>
+                      <td class="text-overflow">{{ product.category }}</td>
+                      <td class="text-overflow">{{ product.quantity }}</td>
+                    </tr>
+                  </ng-template>
+                </p-table>
+              </div>
+            </p-accordionTab>
+
+            <p-accordionTab
+              header="Petitioner and Advocate"
+              [headerStyle]="{
+                'background-color': '#02ABE7',
+                color: 'black',
+                'font-size': '18px'
+              }"
+            >
+              <p class="custom-content">
+                In a land dispute case, the Petitioner and Advocate play crucial
+                and distinct roles. The Petitioner is the party who initiates
+                the legal action by filing a complaint with the court. This
+                individual or entity typically seeks relief or resolution for a
+                grievance related to property rights. For instance, the
+                petitioner could be a landowner asserting their claim to a piece
+                of property, a tenant challenging the terms of their lease, or a
+                buyer seeking to enforce a real estate agreement. The petitioner
+                must provide evidence to support their claims and articulate
+                their position clearly to the court. The Advocate, on the other
+                hand, is the legal professional who represents the petitioner
+                (or the opposing party) throughout the legal proceedings.
+              </p>
+            </p-accordionTab>
+            <p-accordionTab
+              header="Acts"
+              [headerStyle]="{
+                'background-color': '#02ABE7',
+                color: 'black',
+                'font-size': '18px'
+              }"
+            >
+              <p class="custom-content">
+                In resolving land disputes, several key legal acts are
+                frequently involved. The Land Acquisition Act governs how the
+                government can acquire private land for public use and provides
+                for compensation to landowners. For property transactions, the
+                Property Transfer Act ensures that the sale, transfer, and
+                registration of property are conducted legally and with proper
+                documentation. The Land Registration Act establishes a legal
+                framework for registering land and property to affirm ownership
+                and rights. Additionally, Land Use and Zoning Laws control how
+                land is utilized within certain areas to ensure appropriate
+                development and usage.
+              </p>
+            </p-accordionTab>
+          </p-accordion>
+        </div>
+      </p-dialog>
     </ng-template>
   </p-table>
 
-  
- 
   <p-dialog
     header="Add New Case"
     [(visible)]="display"

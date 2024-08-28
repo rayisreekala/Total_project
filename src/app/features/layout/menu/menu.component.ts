@@ -57,6 +57,11 @@ export class MenuComponent implements OnInit {
             routerLink: ['/main/home/cases'],
           },
           {
+            label: 'Client Case Details',
+            icon: 'pi pi-fw pi-history',
+            routerLink: ['/main/home/client-details'],
+          },
+          {
             label: 'Calendar',
             icon: 'pi pi-fw pi-calendar',
             routerLink: ['/main/dashboard'],

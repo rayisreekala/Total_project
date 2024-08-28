@@ -1,8 +1,44 @@
 
 
+
 <!-- carousel.component.html -->
 <!-- home.component.html -->
 
+<!-- primeng -->
+
+   
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/primeicons/4.1.0/primeicons.min.css">
+<style>
+    
+    
+    .card {
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+       
+    }
+    .card-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        width: 3.2rem;
+        height: 3.2rem;
+        color: #fff;
+        font-size: 1.5rem;
+    }
+    .blue-bg { background-color: #007bff; }
+    .orange-bg { background-color: #fd7e14; }
+    .cyan-bg { background-color: #17a2b8; }
+    .purple-bg { background-color: #6f42c1; }
+    .card-title {
+        font-weight: bold;
+    }
+    .text-green { color: #28a745; }
+    .text-500 { color: #6c757d; }
+</style>
 
 <div class="carousel-container">
     <p-carousel
@@ -12,7 +48,7 @@
       [circular]="true"
       [autoplayInterval]="3000"
       [responsiveOptions]="responsiveOptions"
-      [showIndicators]="true"
+      [showIndicators]="false" 
       [showNavigators]="true"
       class="custom-carousel"
       [style]="{
@@ -44,7 +80,27 @@
   </div>
   
   
-  
+
+  <div class="container mt-5 ">
+    <div class="row">
+        <div class="col-12 col-md-6 col-lg-4" *ngFor="let data of outputurl">
+            <div class="card">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <div>
+                        <span class="card-title" style="font-size: 20px;color: #000000">{{ data.title }}</span>
+                        <div class=" font-weight-bold" style="font-size: 25px; color: #007bff">{{ data.value }}</div>
+                    </div>
+                    <div class="card-icon" [ngClass]="data.iconBg">
+                        <i [ngClass]="data.icon" class="pi" style="font-size: 24px; color: #fff;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>  
+
+
+
 
 <!-- 
 <div class="overflow-hidden items">
@@ -65,14 +121,14 @@
             <h3>13,000</h3>
             <p>Lawyers</p>
         </div>
-       
+        
     </div>
     <div class="flex-auto flex-column align-items-center justify-content-center color3 font-bold m-2 px-3 border-round py-2">
         <div class="text-center">
             <h3>18,000</h3>
             <p>Clients</p>
         </div>
-       
+      
     </div>
 
     
@@ -87,7 +143,7 @@
             <h3>10,789</h3>
             <p>Firms</p>
         </div>
-       
+        
     </div>
     <div class="flex-auto flex-column align-items-center justify-content-center color5 font-bold m-2 px-3 border-round py-2">
         <div class="text-center">
@@ -101,99 +157,9 @@
             <h3>17,908</h3>
             <p>Active Users</p>
         </div>
-        
+       
     </div>
 </div>
 
     
   </div> -->
-
-
-
-  <!-- <div class="col-12 md:col-6 lg:col-3">
-    <div class="surface-card shadow-2 p-3 border-round">
-        <div class="flex justify-content-between mb-3">
-            <div>
-                <span class="block text-500 font-medium mb-3">Orders</span>
-                <div class="text-900 font-medium text-xl">152</div>
-            </div>
-          
-        </div>
-        <span class="text-green-500 font-medium">24 new </span>
-        <span class="text-500">since last visit</span>
-    </div>
-</div> -->
-<div class="surface-ground px-4 py-5 md:px-6 lg:px-8 ">
-  <div class="grid">
-      <div class="col-12 md:col-4 lg:col-4">
-          <div class="surface-card shadow-2 p-3 border-round">
-              <div class="flex justify-content-center mb-3">
-                  <div>
-                      <span class="block text-500 font-medium mb-3">Cases</span>
-                      <div class="text-900 font-medium text-xl">17,090</div>
-                  </div>   
-                  <!-- <div class="flex align-items-center justify-content-center bg-blue-100 border-round" style="width:2.5rem;height:2.5rem">
-                    <i class="pi pi-shopping-cart text-blue-500 text-xl"></i>
-                </div>    -->
-              </div>
-              <!-- <span class="text-green-500 font-medium">24 new </span> -->
-        <!-- <span class="text-500">since last visit</span> -->
-          </div>
-      </div>
-      <div class="col-12 md:col-4 lg:col-4">
-          <div class="surface-card shadow-2 p-3 border-round">
-              <div class="flex justify-content-center mb-3">
-                  <div>
-                      <span class="block text-500 font-medium mb-3">Lawyers</span>
-                      <div class="text-900 font-medium text-xl">13,000</div>
-                  </div>
-              </div>
-              <!-- Optional additional content -->
-          </div>
-      </div>
-      <div class="col-12 md:col-4 lg:col-4">
-          <div class="surface-card shadow-2 p-3 border-round">
-              <div class="flex justify-content-center mb-3">
-                  <div>
-                      <span class="block text-500 font-medium mb-3">Clients</span>
-                      <div class="text-900 font-medium text-xl">18,000</div>
-                  </div>
-              </div>
-              <!-- Optional additional content -->
-          </div>
-      </div>
-      <div class="col-12 md:col-4 lg:col-4">
-          <div class="surface-card shadow-2 p-3 border-round">
-              <div class="flex justify-content-center mb-3">
-                  <div>
-                      <span class="block text-500 font-medium mb-3">Firms</span>
-                      <div class="text-900 font-medium text-xl">10,789</div>
-                  </div>
-              </div>
-              <!-- Optional additional content -->
-          </div>
-      </div>
-      <div class="col-12 md:col-4 lg:col-4">
-        <div class="surface-card shadow-2 p-3 border-round">
-            <div class="flex justify-content-center mb-3">
-                <div>
-                    <span class="block text-500 font-medium mb-3">Closed Cases</span>
-                    <div class="text-900 font-medium text-xl">10,789</div>
-                </div>
-            </div>
-            <!-- Optional additional content -->
-        </div>
-    </div>
-    <div class="col-12 md:col-4 lg:col-4">
-      <div class="surface-card shadow-2 p-3 border-round">
-          <div class="flex justify-content-center mb-3">
-              <div>
-                  <span class="block text-500 font-medium mb-3">Active Cases</span>
-                  <div class="text-900 font-medium text-xl">10,789</div>
-              </div>
-          </div>
-          <!-- Optional additional content -->
-      </div>
-  </div>
-  </div>
-</div>

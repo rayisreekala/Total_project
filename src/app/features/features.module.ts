@@ -21,6 +21,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { DocumentComponent } from './components/document/document.component';
 import { CaseComponent } from './components/case/case.component';
 import { CasesComponent } from './components/cases/cases.component';
+import { ClientDetailsComponent } from './components/client-details/client-details.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { CasesComponent } from './components/cases/cases.component';
     HomeComponent,
     ProfileComponent,
     CasesComponent,
+    ClientDetailsComponent,
     
     
   ],

@@ -1,0 +1,179 @@
+
+<div class="flex justify-content-center gap-3">
+    <p-button (click)="showDialog()" icon="pi pi-external-link" label="Case1"></p-button>
+    <p-dialog [(visible)]="visible" [style]="{width: '80vw' , height:'80vw'}">
+
+        <div class="card flex justify-content-center">
+            <p-accordion [multiple]="true" [activeIndex]="[0]">
+                <p-accordionTab header="Case Details"
+                    [headerStyle]="{'background-color': '#02ABE7', 'color': 'black','font-size': '18px'}">
+                    <div class="card-table">
+                        <div class="table-wrapper">
+                            <p-table class="custom-table" [value]="products" [tableStyle]="{ 'min-width': '50rem' }">
+                                <ng-template pTemplate="header">
+                                    <tr>
+                                        <th>Case type</th>
+                                        <th>Filing Number</th>
+
+                                    </tr>
+                                </ng-template>
+                                <ng-template pTemplate="body" let-product>
+                                    <tr>
+                                        <td class="text-overflow">{{ product.code }}</td>
+                                        <td class="text-overflow">{{ product.name }}</td>
+                                    </tr>
+                                </ng-template>
+                            </p-table>
+                        </div>
+                    </div>
+
+
+                </p-accordionTab>
+                <p-accordionTab header=" Case Status"
+                    [headerStyle]="{'background-color': '#02ABE7', 'color': 'black','font-size': '18px'}">
+                    <p class="custom-content">
+                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                        laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto
+                        beatae vitae dicta sunt explicabo. Nemo enim
+                        ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni
+                        dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non
+                        numquam eius modi.
+                    </p>
+                </p-accordionTab>
+                <p-accordionTab header="History of Case hearing "
+                    [headerStyle]="{'background-color': '#02ABE7', 'color': 'black','font-size': '18px'}">
+
+                    <div class="card-table">
+                        <p-table class="custom-table" [value]="products" [tableStyle]="{ 'min-width': '50rem' }">
+                            <ng-template pTemplate="header">
+                                <tr>
+                                    <th>Code</th>
+                                    <th>Name</th>
+                                    <th>Category</th>
+                                    <th>Quantity</th>
+                                </tr>
+                            </ng-template>
+                            <ng-template pTemplate="body" let-product>
+                                <tr>
+                                    <td class="text-overflow">{{ product.code }}</td>
+                                    <td class="text-overflow">{{ product.name }}</td>
+                                    <td class="text-overflow">{{ product.category }}</td>
+                                    <td class="text-overflow">{{ product.quantity }}</td>
+                                </tr>
+                            </ng-template>
+                        </p-table>
+                    </div>
+                </p-accordionTab>
+
+                <p-accordionTab header="Petitioner and Advocate"
+                    [headerStyle]="{'background-color': '#02ABE7', 'color': 'black','font-size': '18px'}">
+                    <p class="custom-content">
+                        At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
+                        deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non
+                        provident, similique sunt in culpa
+                        qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum
+                        facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio
+                        cumque nihil impedit quo minus.
+                    </p>
+                </p-accordionTab>
+                <p-accordionTab header="Acts"
+                    [headerStyle]="{'background-color': '#02ABE7', 'color': 'black','font-size': '18px'}">
+                    <p class="custom-content">
+                        At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
+                        deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non
+                        provident, similique sunt in culpa
+                        qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum
+                        facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio
+                        cumque nihil impedit quo minus.
+                    </p>
+                </p-accordionTab>
+            </p-accordion>
+        </div>
+
+    </p-dialog>
+
+    <p-button (click)="showDialog()" icon="pi pi-external-link" label="Case2"></p-button>
+    <p-dialog [(visible)]="visible" [style]="{width: '80vw' , height:'80vw'}">
+
+        <div class="card flex justify-content-center">
+            <p-accordion [multiple]="true" [activeIndex]="[0]">
+                <p-accordionTab header="Case Details"
+                    [headerStyle]="{'background-color': '#02ABE7', 'color': 'black','font-size': '18px'}">
+                    <div class="card-table">
+                        <div class="table-wrapper">
+                            <p-table class="custom-table" [value]="products" [tableStyle]="{ 'min-width': '50rem' }">
+                                <ng-template pTemplate="header">
+                                    <tr>
+                                        <th>Case type</th>
+                                        <th>Filing Date</th>
+                                        <th>Filing Number</th>
+                                        <th>Registration Number</th>
+
+                                    </tr>
+                                </ng-template>
+                                <ng-template pTemplate="body" let-product>
+                                    <tr>
+                                        <td class="text-overflow">{{ product.code }}</td>
+                                        <td class="text-overflow">{{ product.name }}</td>
+                                        <td class="text-overflow">{{ product.category }}</td>
+                                        <td class="text-overflow">{{ product.quantity }}</td>
+                                    </tr>
+                                </ng-template>
+                            </p-table>
+                        </div>
+                    </div>
+
+
+                </p-accordionTab>
+                <p-accordionTab header=" Case Status"
+                    [headerStyle]="{'background-color': '#02ABE7', 'color': 'black','font-size': '18px'}">
+                    <p class="custom-content">
+                        Cases where one party alleges that another party has failed to fulfill the terms of a contract.
+                        Examples include breach of business agreements, rental agreements, or employment contracts.
+                    </p>
+                </p-accordionTab>
+                <p-accordionTab header="History of Case Hearing "
+                    [headerStyle]="{'background-color': '#02ABE7', 'color': 'black','font-size': '18px'}">
+
+                    <div class="card-table">
+                        <p-table class="custom-table" [value]="products" [tableStyle]="{ 'min-width': '50rem' }">
+                            <ng-template pTemplate="header">
+                                <tr>
+                                    <th>First Hearing Date</th>
+                                    <th>Next Hearing Date</th>
+                                    <th>Stage of Case</th>
+                                    <th>Court No And Judge</th>
+                                </tr>
+                            </ng-template>
+                            <ng-template pTemplate="body" let-product>
+                                <tr>
+                                    <td class="text-overflow">20-01-2024</td>
+                                    <td class="text-overflow">11-02-2024</td>
+                                    <td class="text-overflow">For Arguments</td>
+                                    <td class="text-overflow">1-Senior Civil Judge, Chirala</td>
+                                </tr>
+                            </ng-template>
+                        </p-table>
+                    </div>
+                </p-accordionTab>
+
+                <p-accordionTab header="Petitioner and Advocate"
+                    [headerStyle]="{'background-color': '#02ABE7', 'color': 'black','font-size': '18px'}">
+                    <p class="custom-content">
+                        Issues involving property ownership or use, such as disputes over land boundaries, real estate
+                        transactions, or landlord-tenant conflicts.
+                    </p>
+                </p-accordionTab>
+                <p-accordionTab header="Acts"
+                    [headerStyle]="{'background-color': '#02ABE7', 'color': 'black','font-size': '18px'}">
+                    <p class="custom-content">
+                        Legislation that has been passed by a legislative body, such as a national or regional
+                        parliament. It represents a law or regulation that is officially recognized and enforced within
+                        a jurisdiction.
+                    </p>
+                </p-accordionTab>
+            </p-accordion>
+        </div>
+
+    </p-dialog>
+</div>

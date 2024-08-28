@@ -11,6 +11,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { DocumentComponent } from './components/document/document.component';
 import { CaseComponent } from './components/case/case.component';
 import { CasesComponent } from './components/cases/cases.component';
+import { ClientDetailsComponent } from './components/client-details/client-details.component';
 
 
 const routes: Routes = [
@@ -36,6 +37,9 @@ const routes: Routes = [
       },
       {
         path:'cases' ,component:CasesComponent
+      },
+      {
+        path:'client-details' ,component:ClientDetailsComponent
       },
       
       
