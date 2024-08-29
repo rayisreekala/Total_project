@@ -22,6 +22,8 @@ import { DocumentComponent } from './components/document/document.component';
 import { CaseComponent } from './components/case/case.component';
 import { CasesComponent } from './components/cases/cases.component';
 import { ClientDetailsComponent } from './components/client-details/client-details.component';
+import { LawyersComponent } from './components/lawyers/lawyers.component';
+import { MylawyersComponent } from './components/mylawyers/mylawyers.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,8 @@ import { ClientDetailsComponent } from './components/client-details/client-detai
     ProfileComponent,
     CasesComponent,
     ClientDetailsComponent,
+    LawyersComponent,
+    MylawyersComponent,
     
     
   ],

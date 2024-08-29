@@ -12,7 +12,8 @@ import { DocumentComponent } from './components/document/document.component';
 import { CaseComponent } from './components/case/case.component';
 import { CasesComponent } from './components/cases/cases.component';
 import { ClientDetailsComponent } from './components/client-details/client-details.component';
-
+import { LawyersComponent } from './components/lawyers/lawyers.component';
+import { Breadcrumb } from 'primeng/breadcrumb';
 
 const routes: Routes = [
   {
@@ -26,34 +27,40 @@ const routes: Routes = [
       },
 
       {
-        path:'profile' ,component:ProfileComponent
+        path: 'profile',
+        component: ProfileComponent,
+      },
+      {
+        path: 'document',
+        component: DocumentComponent,
+      },
+      {
+        path: 'case',
+        component: CaseComponent,
+      },
+      {
+        path: 'cases',
+        component: CasesComponent,
+      },
+      {
+        path: 'client-details',
+        component: ClientDetailsComponent,
+      },
+      {
+        path: 'lawyers',
+        component: LawyersComponent
       },
 
-      {
-        path:'document' ,component:DocumentComponent
-      },
-      {
-        path:'case' ,component:CaseComponent
-      },
-      {
-        path:'cases' ,component:CasesComponent
-      },
-      {
-        path:'client-details' ,component:ClientDetailsComponent
-      },
-      
-      
-      
-      {
-        path: 'admin',
-        component: AdminComponent,
-        children: [
-          { path: 'users', component: UsersComponent },
-          { path: 'roles', component: RolesComponent },
-          { path: 'createuser', component: CreateEditUserComponent },
-          { path: 'edituser', component: CreateEditUserComponent },
-        ],
-      },
+      // {
+      //   path: 'admin',
+      //   component: AdminComponent,
+      //   children: [
+      //     { path: 'users', component: UsersComponent },
+      //     { path: 'roles', component: RolesComponent },
+      //     { path: 'createuser', component: CreateEditUserComponent },
+      //     { path: 'edituser', component: CreateEditUserComponent },
+      //   ],
+      // },
     ],
   },
   {

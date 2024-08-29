@@ -24,11 +24,19 @@ dt1: any;
 items: MenuItem[] | undefined;
 
 visible: boolean = false;
+lawyers: any[] | undefined;
+view: boolean = false;
+appointView: boolean = false;
+emailSubject: string | undefined;
+emailBody: string | undefined;
+selectedLawyer: any = null;
 
 products_details: any[] = [
   { code: 'Civil ', name: '20-1-2024', category: '862/2005', quantity: '53/2005' },
   { code: 'Criminal', name: '07-2-2024', category: '654/2005', quantity: '67/2005' }
 ];
+selectedProduct: any;
+  selectedCase: any;
 
     constructor(private messageService: MessageService) {} // Inject MessageService here
 
@@ -222,8 +230,202 @@ products_details: any[] = [
             { label: 'In-Progress', value: 'In-Progress' },
             { label: 'Rejected', value: 'Rejected' }
         ];
-    }
+    
 
+    this.lawyers = [
+      {
+        id: '1',
+        profile: '../assets/layout/images/lawyer.png',
+        firstName: 'Ravi',
+        lastName: 'Reddy',
+        location: 'Hyderabad',
+        type: 'Civil',
+        caseDetails:
+          "Expert in personal injury and workers' compensation cases Expert in personal injury and workers' compensation casesExpert in personal injury and workers' compensation casesExpert in personal injury and workers' compensation casesExpert in personal injury and workers' compensation casesExpert in personal injury and workers' compensation cases",
+        contact: '+1 987-654-3210',
+        caseName: 'Personal Injury Case',
+        caseHiredDate: '2024-01-15',
+        caseStatus: 'Ongoing',
+        closedDate: null,
+        description: 'Detailed description of the case',
+      },
+      {
+        id: '2',
+        profile: '../assets/layout/images/lawyer.png',
+        firstName: 'Sita',
+        lastName: 'Kumar',
+        location: 'Vijayawada',
+        type: 'Criminal',
+        caseDetails: ` Expert in personal injury and workers' compensation cases Expert in personal injury and workers' compensation casesExpert in personal injury and workers' compensation casesExpert in personal injury and workers' compensation casesExpert in personal injury and workers' compensation cases`,
+        contact: '+1 123-456-7890',
+        caseName: 'Criminal Defense',
+        caseHiredDate: '2023-10-01',
+        caseStatus: 'Pending',
+        closedDate: null,
+        description: 'Detailed description of the case',
+      },
+      {
+        id: '3',
+        profile: '../assets/layout/images/lawyer.png',
+        firstName: 'Lakshmi',
+        lastName: 'Chowdary',
+        location: 'Visakhapatnam',
+        type: 'Administrative',
+        caseDetails: ` Expert in personal injury and workers' compensation cases Expert in personal injury and workers' compensation casesExpert in personal injury and workers' compensation cases`,
+        contact: '+1 234-567-8901',
+        caseName: 'Regulatory Compliance',
+        caseHiredDate: '2022-08-20',
+        caseStatus: 'Closed',
+        closedDate: '2024-02-15',
+        description: 'Detailed description of the case',
+      },
+      {
+        id: '4',
+        profile: '../assets/layout/images/lawyer.png',
+        firstName: 'Kumar',
+        lastName: 'Rao',
+        location: 'Guntur',
+        type: 'Civil',
+        caseDetails: ` Expert in personal injury and workers' compensation cases Expert in personal injury and workers' compensation casesExpert in personal injury and workers' compensation casesExpert in personal injury and workers' compensation cases`,
+        contact: '+1 345-678-9012',
+        caseName: 'Family Law',
+        caseHiredDate: '2023-05-10',
+        caseStatus: 'Ongoing',
+        closedDate: null,
+        description: 'Detailed description of the case',
+      },
+      {
+        id: '5',
+        profile: '../assets/layout/images/lawyer.png',
+        firstName: 'Anita',
+        lastName: 'Nair',
+        location: 'Tirupati',
+        type: 'Criminal',
+        caseDetails: ` Expert in personal injury and workers' compensation cases Expert in personal injury and workers' compensation casesExpert in personal injury and workers' compensation casesExpert in personal injury and workers' compensation cases`,
+        contact: '+1 456-789-0123',
+        caseName: 'Drug Offenses',
+        caseHiredDate: '2022-12-12',
+        caseStatus: 'Pending',
+        closedDate: null,
+        description: 'Detailed description of the case',
+      },
+      {
+        id: '6',
+        profile: '../assets/layout/images/lawyer.png',
+        firstName: 'Pradeep',
+        lastName: 'Sinha',
+        location: 'Kakinada',
+        type: 'Administrative',
+        caseDetails:
+          "Expert in personal injury and workers' compensation cases Expert in personal injury and workers' compensation casesExpert in personal injury and workers' compensation cases",
+        contact: '+1 567-890-1234',
+        caseName: 'Employment Law',
+        caseHiredDate: '2024-03-25',
+        caseStatus: 'Ongoing',
+        closedDate: null,
+        description: 'Detailed description of the case',
+      },
+    ];
+
+
+
+    this.lawyers = [
+      {
+        id: '1',
+        profile: '../assets/layout/images/lawyer.png',
+        firstName: 'Ravi',
+        lastName: 'Reddy',
+        location: 'Hyderabad',
+        type: 'Civil',
+        caseDetails:
+          "Expert in personal injury and workers' compensation cases Expert in personal injury and workers' compensation casesExpert in personal injury and workers' compensation casesExpert in personal injury and workers' compensation casesExpert in personal injury and workers' compensation casesExpert in personal injury and workers' compensation cases",
+        contact: '+1 987-654-3210',
+        caseName: 'Personal Injury Case',
+        caseHiredDate: '2024-01-15',
+        caseStatus: 'Ongoing',
+        closedDate: null,
+        description: 'Detailed description of the case',
+      },
+      {
+        id: '2',
+        profile: '../assets/layout/images/lawyer.png',
+        firstName: 'Sita',
+        lastName: 'Kumar',
+        location: 'Vijayawada',
+        type: 'Criminal',
+        caseDetails: ` Expert in personal injury and workers' compensation cases Expert in personal injury and workers' compensation casesExpert in personal injury and workers' compensation casesExpert in personal injury and workers' compensation casesExpert in personal injury and workers' compensation cases`,
+        contact: '+1 123-456-7890',
+        caseName: 'Criminal Defense',
+        caseHiredDate: '2023-10-01',
+        caseStatus: 'Pending',
+        closedDate: null,
+        description: 'Detailed description of the case',
+      },
+      {
+        id: '3',
+        profile: '../assets/layout/images/lawyer.png',
+        firstName: 'Lakshmi',
+        lastName: 'Chowdary',
+        location: 'Visakhapatnam',
+        type: 'Administrative',
+        caseDetails: ` Expert in personal injury and workers' compensation cases Expert in personal injury and workers' compensation casesExpert in personal injury and workers' compensation cases`,
+        contact: '+1 234-567-8901',
+        caseName: 'Regulatory Compliance',
+        caseHiredDate: '2022-08-20',
+        caseStatus: 'Closed',
+        closedDate: '2024-02-15',
+        description: 'Detailed description of the case',
+      },
+      {
+        id: '4',
+        profile: '../assets/layout/images/lawyer.png',
+        firstName: 'Kumar',
+        lastName: 'Rao',
+        location: 'Guntur',
+        type: 'Civil',
+        caseDetails: ` Expert in personal injury and workers' compensation cases Expert in personal injury and workers' compensation casesExpert in personal injury and workers' compensation casesExpert in personal injury and workers' compensation cases`,
+        contact: '+1 345-678-9012',
+        caseName: 'Family Law',
+        caseHiredDate: '2023-05-10',
+        caseStatus: 'Ongoing',
+        closedDate: null,
+        description: 'Detailed description of the case',
+      },
+      {
+        id: '5',
+        profile: '../assets/layout/images/lawyer.png',
+        firstName: 'Anita',
+        lastName: 'Nair',
+        location: 'Tirupati',
+        type: 'Criminal',
+        caseDetails: ` Expert in personal injury and workers' compensation cases Expert in personal injury and workers' compensation casesExpert in personal injury and workers' compensation casesExpert in personal injury and workers' compensation cases`,
+        contact: '+1 456-789-0123',
+        caseName: 'Drug Offenses',
+        caseHiredDate: '2022-12-12',
+        caseStatus: 'Pending',
+        closedDate: null,
+        description: 'Detailed description of the case',
+      },
+      {
+        id: '6',
+        profile: '../assets/layout/images/lawyer.png',
+        firstName: 'Pradeep',
+        lastName: 'Sinha',
+        location: 'Kakinada',
+        type: 'Administrative',
+        caseDetails:
+          "Expert in personal injury and workers' compensation cases Expert in personal injury and workers' compensation casesExpert in personal injury and workers' compensation cases",
+        contact: '+1 567-890-1234',
+        caseName: 'Employment Law',
+        caseHiredDate: '2024-03-25',
+        caseStatus: 'Ongoing',
+        closedDate: null,
+        description: 'Detailed description of the case',
+      },
+    ];
+
+
+  }
 
     onSearch(value: string) {
       if (this.dt1) {
@@ -249,12 +451,60 @@ products_details: any[] = [
        
 
     }
-    showDialogBox(){
-      this.visible=true;
+    showDialogBox() {
+      this.visible = true;
+      // You can also use the event data to show specific details
+      // console.log('Row selected:', event.data);
     }
 
     clear(table: Table) {
       table.clear();
+  }
+
+  getCardsForSelectedCase() {
+    return this.lawyers;
+  }
+  onRowSelect(event: any): void {
+    this.selectedProduct = event.data; // Set the selected product
+    this.visible = true; // Show the dialog
+  }
+
+  // Method to hide the dialog
+  hideDialog(): void {
+    this.visible = false;
+  }
+
+
+
+  closeDialog() {
+    this.view = false;
+    this.selectedLawyer = null;
+  }
+  showAppointDialog() {
+    alert('Done');
+  }
+  submitForm() {
+    alert('Message Sent');
+  }
+  submitContactForm() {
+    this.messageService.add({
+      severity: 'info',
+      summary: 'Form Submitted',
+      detail: 'Your message has been sent to the lawyer.',
+    });
+    this.view = false;
+  }
+  showMoreDetails(event: Event, lawyer: any) {
+    event.preventDefault(); 
+    this.selectedLawyer = lawyer; 
+    this.viewMoreDialog = true; 
+  }
+  // onRowSelect(event: any) {
+  //   this.selectedProduct = event.data; // Capture the selected row data
+  //   this.showDialogBox();
+  // }
+  onDialogHide() {
+    this.selectedProduct = null; // Reset the selected product when dialog is closed
   }
     saveProduct() {
         if (this.newCase.case_name) {
@@ -277,6 +527,7 @@ products_details: any[] = [
         }
     }
 
+
     resetForm() {
         this.newCase = {} as Product;
     }
@@ -292,4 +543,28 @@ products_details: any[] = [
     onRowEditCancel(product: Product, index: number) {
         // implementation
     }
+    shouldShowViewMore(caseDetails: string): boolean {
+      return caseDetails.length > 100;
+    }
+   
+  
+
+
+  favoriteLawyers: any[] = [];
+  viewMoreDialog: boolean = false;
+
+  isFavorite(lawyer: any): boolean {
+    return this.favoriteLawyers.includes(lawyer);
+  }
+
+  toggleFavorite(lawyer: any) {
+    if (this.isFavorite(lawyer)) {
+      this.favoriteLawyers = this.favoriteLawyers.filter(
+        (fav) => fav !== lawyer
+      );
+    } else {
+      this.favoriteLawyers.push(lawyer);
+    }
+  }
+   
 }

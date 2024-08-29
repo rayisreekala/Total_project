@@ -38,8 +38,7 @@ export class MenuComponent implements OnInit {
           {
             label: 'Lawyers',
             icon: 'pi pi-fw pi-user',   
-
-            routerLink: ['/main/dashboard'],
+            routerLink: ['/main/home/lawyers'],
           },
           {
             label: 'Documents',

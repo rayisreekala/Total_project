@@ -1,3 +1,5 @@
+<p-tabView >
+  <p-tabPanel header="My Cases">
 <div class="card">
   <button
     pButton
@@ -21,11 +23,14 @@
         </div>
     </ng-template> -->
 
-  <p-table
+    <p-table
     [value]="products"
     dataKey="case_id"
     editMode="row"
     [tableStyle]="{ 'min-width': '50rem' }"
+    selectionMode="single"
+    (onRowSelect)="onRowSelect($event)"
+    class="clickable-row"
   >
     <ng-template pTemplate="caption">
       <div class="flex">
@@ -267,15 +272,25 @@
         </td>
       </tr>
 
+
+
+<!-- <a class="clickable-text" (click)="showDialog()">Click here to open popup</a> -->
+
+<!-- <p-dialog header="Details" [(visible)]="display" [modal]="true" [closable]="true">
+    <p>Here are some details in the popup.</p>
+</p-dialog> -->
+
       <p-button
         (click)="showDialogBox()"
         icon="pi pi-external-link"
         label="Case1"
       ></p-button>
       <p-dialog
-        [(visible)]="visible"
-        [style]="{ width: '80vw', height: '80vw' }"
-      >
+      header="Case Details"
+      [(visible)]="visible"
+      [style]="{ width: '80vw', height: '80vw' }"
+      (onHide)="hideDialog()"
+    >
         <div class="card flex justify-content-center">
           <p-accordion [multiple]="true" [activeIndex]="[0]">
             <p-accordionTab
@@ -291,7 +306,7 @@
                   <p-table
                     class="custom-table"
                     [value]="products_details"
-                    [tableStyle]="{ 'min-width': '50rem' }"
+                    [tableStyle]="{ 'min-width': '50rem' }"  (onRowSelect)="showDialog()"
                   >
                     <ng-template pTemplate="header">
                       <tr>
@@ -546,3 +561,72 @@
     </form>
   </p-dialog>
 </div>
+
+  </p-tabPanel>
+
+
+<p-tabPanel header="My Lawyers">
+
+  
+  <div class="card-grid">
+    <p-card
+      class="lawyer-card"
+      *ngFor="let lawyer of getCardsForSelectedCase()"
+    >
+      <div class="card-content">
+        <button
+          class="fav-icon"
+          [ngClass]="{ 'fav-icon-active': isFavorite(lawyer) }"
+          (click)="toggleFavorite(lawyer)"
+          aria-label="Favorite"
+        >
+          <i
+            [ngClass]="
+              isFavorite(lawyer) ? 'pi pi-heart-fill' : 'pi pi-heart'
+            "
+          ></i>
+        </button>
+        <div class="image-container">
+          <img
+            [src]="lawyer.profile"
+            alt="Profile Picture"
+            class="profile-image"
+          />
+        </div>
+
+        <div class="text-content">
+          <h2>{{ lawyer.firstName }} {{ lawyer.lastName }}</h2>
+          <p>Location: {{ lawyer.location }}</p>
+          <p>Type: {{ lawyer.type }}</p>
+          <p *ngIf="shouldShowViewMore(lawyer.caseDetails)">
+            {{ lawyer.caseDetails | slice : 0 : 100 }}...
+            <a href="#" (click)="showMoreDetails($event, lawyer)"
+              >View More</a
+            >
+          </p>
+          <p *ngIf="!shouldShowViewMore(lawyer.caseDetails)">
+            {{ lawyer.caseDetails }}
+          </p>
+          <p class="phone-number">
+            <span class="phone-label">Phone:</span> {{ lawyer.contact }}
+          </p>
+          <div class="action-buttons">
+            <p-button
+              (click)="showDialog()"
+              icon="pi pi-external-link"
+              label="Reach Out"
+              class="p-mr-2 p-4"
+            ></p-button>
+            <p-button
+              (click)="showAppointDialog()"
+              icon="pi pi-calendar"
+              label="Appoint"
+            ></p-button>
+          </div>
+        </div>
+      </div>
+    </p-card>
+  </div>
+       
+</p-tabPanel>
+</p-tabView>

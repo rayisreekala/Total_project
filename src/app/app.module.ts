@@ -32,6 +32,7 @@ import { DialogModule } from 'primeng/dialog';  // Import DialogModule
 import { MenuModule } from 'primeng/menu';
 import { OverlayPanelModule } from 'primeng/overlaypanel';
 import { AccordionModule } from 'primeng/accordion';  // Import AccordionModule
+import { TabViewModule } from 'primeng/tabview';
 
 
 
@@ -62,7 +63,8 @@ import { AccordionModule } from 'primeng/accordion';  // Import AccordionModule
     DialogModule,
      MenuModule ,
      OverlayPanelModule,
-     AccordionModule
+     AccordionModule,
+     TabViewModule
     
   ],
   declarations: [DocumentComponent, AppComponent,CaseComponent],
