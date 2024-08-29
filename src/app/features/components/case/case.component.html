@@ -220,7 +220,14 @@
         </td>
 
         <td>
+          
           <div class="flex align-items-center justify-content-center gap-2">
+
+            <p-button
+            (click)="showDialogBox()"
+            icon="pi pi-external-link"
+            label="Case1"
+          ></p-button>
             <button
               *ngIf="!editing"
               pButton
@@ -268,9 +275,12 @@
               (click)="onRowEditCancel(product, ri)"
               class="p-button-rounded p-button-text p-button-danger"
             ></button>
+
+           
           </div>
         </td>
       </tr>
+
 
 
 
@@ -280,11 +290,7 @@
     <p>Here are some details in the popup.</p>
 </p-dialog> -->
 
-      <p-button
-        (click)="showDialogBox()"
-        icon="pi pi-external-link"
-        label="Case1"
-      ></p-button>
+    
       <p-dialog
       header="Case Details"
       [(visible)]="visible"

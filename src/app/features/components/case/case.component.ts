@@ -37,6 +37,7 @@ products_details: any[] = [
 ];
 selectedProduct: any;
   selectedCase: any;
+  selectedRow: any;
 
     constructor(private messageService: MessageService) {} // Inject MessageService here
 
@@ -566,5 +567,10 @@ selectedProduct: any;
       this.favoriteLawyers.push(lawyer);
     }
   }
+
+  // onRowSelect(event: any) {
+  //   this.selectedRow = event.data; // Capture selected row data
+  //   this.visible = true; // Show the dialog
+  // }
    
 }
